@@ -10,7 +10,7 @@ import theme from './Theme';
 import KAppBar from './components/KAppBar/KAppBar';
 import CurrentPlaying from './components/CurrentPlaying/CurrentPlaying';
 import NextPlayings from './components/NextPlayings/NextPlayings';
-
+import SongSearcher from './components/SongSearcher/SongSearcher';
 
 function App() {
   return (
@@ -30,6 +30,10 @@ function App() {
       >
           <Box mb={2} marginTop={2}>
             <CurrentPlaying/>
+          </Box>
+
+          <Box mb={2}>
+            <SongSearcher/>
           </Box>
 
           <Box mt={2}>
