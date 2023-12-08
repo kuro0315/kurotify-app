@@ -1,57 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import { Counter } from './components/counter/Counter';
 import './App.css';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
+import {ThemeProvider } from '@mui/material/styles';
+
+
+import theme from './Theme';
+import KAppBar from './components/KAppBar/KAppBar';
+import CurrentPlaying from './components/CurrentPlaying/CurrentPlaying';
+import NextPlayings from './components/NextPlayings/NextPlayings';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <KAppBar />
+
+      <Container 
+        maxWidth="sm" 
+        style={
+          { 
+            display: 'flex', 
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }
+        }
+      >
+          <Box mb={2} marginTop={2}>
+            <CurrentPlaying/>
+          </Box>
+
+          <Box mt={2}>
+            <NextPlayings/>
+          </Box>
+
+      </Container>
+    </ThemeProvider>
   );
 }
 
